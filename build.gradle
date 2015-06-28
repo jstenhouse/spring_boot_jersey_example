@@ -1,9 +1,26 @@
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+
+    dependencies {
+        classpath 'org.springframework.boot:spring-boot-gradle-plugin:1.2.4.RELEASE' // can't use ext vars here...?
+    }
+}
+
 apply plugin: 'java'
 apply plugin: 'idea'
+apply plugin: 'spring-boot'
 
 repositories {
     mavenCentral()
 }
 
+ext {
+    springBootVersion = '1.2.4.RELEASE'
+}
+
 dependencies {
+    compile "org.springframework.boot:spring-boot-starter-jersey:$springBootVersion"
+    compile "org.springframework.boot:spring-boot-starter-jetty:$springBootVersion"
 }
